@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+
+bool tabela[1000][1000] = {false};
+
+int main() {
+    int n, x1, y1, x2, y2, ap = 0; 
+    cin >> n;
+
+    while (n > 0) {
+        cin >>x1>>y1>>x2>>y2;
+
+        
+        if (x1>x2) swap(x1,x2);
+        if (y1>y2) swap(y1,y2);
+
+        for (int i=x1;i<x2;i++) {
+            for (int j=y1;j<y2;j++) {
+                if (!tabela[i][j]) {
+                    tabela[i][j] = true;
+                    ap++; 
+                }
+            }
+        }
+        n--;
+    }
+
+    cout << ap << endl;
+    return 0;
+}
